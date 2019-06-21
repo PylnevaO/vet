@@ -1,0 +1,20 @@
+.Footer-container{
+    font-family: Raleway;
+}
+
+.Footer{
+    background-color: #F8BE96;
+    height: 150px;
+    width: auto; 
+    display:flex;
+}
+
+.Footer-info{
+    display: inline-flex;
+}
+
+.Footer-info-elem{
+    font-size: 20px;
+    color: #7a3e13;
+    margin-left:30px ;
+}

@@ -12,6 +12,7 @@ class Mheader extends React.Component {
             <img src={logo} className="Header-logo" alt="logo"/>
           </a>
           <p className="Header-titel">Dr. Pounce-A-Lot</p>
+          <a className="Header-enter" href="/login"> Войти </a>
         </header>
       </div>
     );

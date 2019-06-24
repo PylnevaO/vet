@@ -6,6 +6,7 @@ import Docpage from '../src/components/docpage/Docpage';
 import Mfooter from '../src/components/footer/Mfooter';
 import Mheader from '../src/components/header/Mheader';
 import Mainpage from '../src/components/mainpage/Mainpage';
+import Loginpage from './components/loginpage/Loginpage';
 import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,6 +17,7 @@ ReactDOM.render(
             <Route path="/main" component={Mainpage} />
             <Route path="/clientpage" component={Clientpage} />
             <Route path="/docpage" component={Docpage}/>
+            <Route path="/login" component={Loginpage}/>
         </Switch>
         <Mfooter/>
   </Router>,

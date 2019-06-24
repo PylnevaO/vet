@@ -4,39 +4,55 @@
 
 .Main-page{
     height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    p {
+        text-align: center;
+    }
 }
 
-.Buttom-bar{
-    height: 100px;
+.Main-page-pic-bar{
     display: flex;
-    width: auto;
-    margin-top: 40px;
+    flex-direction: row;
     justify-content: center;
 }
-.Buttom-1{
-    background-color:#FDB349;
-    margin-right: 30px;
-    height: 38px;
-    width: 161px;
-    text-align: center;
-    border-radius: 30px;
-    a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 15px;
+
+.Cat{
+    height: 300px;
+    margin: 30px;
+}
+// .Buttom-bar{
+//     height: 100px;
+//     display: flex;
+//     width: auto;
+//     margin-top: 40px;
+//     justify-content: center;
+// }
+// .Buttom-1{
+//     background-color:#FDB349;
+//     margin-right: 30px;
+//     height: 38px;
+//     width: 161px;
+//     text-align: center;
+//     border-radius: 30px;
+//     a {
+//         color: #ffffff;
+//         text-decoration: none;
+//         font-size: 15px;
          
-    }
-}
-.Buttom-2{
-    background-color:#AD9176;
-    margin-right: 30px;
-    height: 38px;
-    width: 161px;
-    text-align: center;
-    border-radius: 30px;
-    a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 15px;
-    }
-}
+//     }
+// }
+// .Buttom-2{
+//     background-color:#AD9176;
+//     margin-right: 30px;
+//     height: 38px;
+//     width: 161px;
+//     text-align: center;
+//     border-radius: 30px;
+//     a {
+//         color: #ffffff;
+//         text-decoration: none;
+//         font-size: 15px;
+//     }
+// }

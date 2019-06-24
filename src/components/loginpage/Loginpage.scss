@@ -1,0 +1,53 @@
+.Login-container{
+    height: 600px;
+}
+
+.Doc-bar-container{
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+    font-size: 20px;
+    a{
+        margin-top:20px;
+        margin-left: 40px;
+        text-decoration: none;
+        color: darkgoldenrod;
+    }
+}
+
+.Log-Reg-Tab{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Reg-table-contaimer{
+    display: flex;
+    flex-direction: column;
+}
+
+.Reg-table-form{
+    display: flex;
+    flex-direction: column;
+    input {
+        margin-top: 30px;
+    }
+    button{
+        margin-top: 30px
+    }
+}
+
+.Login-table-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.Login-table-form{
+    display: flex;
+    flex-direction: column;
+    input {
+        margin-top: 30px;
+    }
+    button{
+        margin-top: 30px
+    }
+}

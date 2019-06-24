@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Loginpage.scss';
-import LoginTable from './LoginTable'
-import RegTable from './RegTable'
+import LoginTable from './LoginTable';
+import RegTable from './RegTable';
 
 class Loginpage extends React.Component {
   public render() {

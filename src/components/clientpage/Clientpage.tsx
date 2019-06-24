@@ -1,16 +1,20 @@
 import * as React from 'react';
+import Casehistory from './Casehistory'
+import Clientcard from './Clientcard'
 import './Clientpage.scss';
-
+import Petlist from './Petslist'
 
 class Clientpage extends React.Component {
   public render() {
     return (
-      <div className="Main-page-container">
-        <body className="Main-page">
-          <div className="Buttom-bar">
-              Страница клиента
+      <div className="Client-page-container">
+        <div className="Client-page-right-container">
+          <Clientcard/>
+          <Petlist/>
           </div>
-        </body>
+        <div className="Case-hiostory-container">
+          <Casehistory/>
+        </div>
       </div>
     );
   }

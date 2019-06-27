@@ -1,8 +1,12 @@
 import * as React from 'react';
-import Casehistory from './Casehistory'
-import Clientcard from './Clientcard'
+import MockDiagnosisList from '../../mocks/Mockdiagnosislist'
+import MockPetList from '../../mocks/Mockpetlist'
+import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
+import Petlist from '../pets/Petslist'
+import Clientcard from './Clientcard'   
 import './Clientpage.scss';
-import Petlist from './Petslist'
+
+const currentID: number = 1;
 
 class Clientpage extends React.Component {
   public render() {
@@ -10,11 +14,9 @@ class Clientpage extends React.Component {
       <div className="Client-page-container">
         <div className="Client-page-right-container">
           <Clientcard/>
-          <Petlist/>
+          <Petlist pets={MockPetList} currentID={currentID}/>
           </div>
-        <div className="Case-hiostory-container">
-          <Casehistory/>
-        </div>
+          <DiagnosCardMini diagnosis={MockDiagnosisList} currentID={currentID} isDoctor={false}/>
       </div>
     );
   }

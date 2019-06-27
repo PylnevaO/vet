@@ -1,0 +1,18 @@
+.Diagnos-block{
+    height: 500px;
+    width: 600px;
+    background-color: rgb(247, 217, 179);
+    border-radius: 30px;
+    padding-top: 10px;
+}
+
+.Diagnos-block-items{
+    height: 50px;
+    width: 600px;
+    background-color: rgb(255, 249, 241);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+}

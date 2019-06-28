@@ -7,7 +7,6 @@ export interface IPet{
     client_ID: number;
     pet_name: string;
     pet_age: number;
-    diagnoslist: any;
 }
 
 class Petcard extends React.Component{

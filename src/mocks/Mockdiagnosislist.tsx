@@ -1,6 +1,6 @@
 import {IDiagnos} from '../components/diagnosis/Diagnosiscard';
 
-const MockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
+const mockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
     clent_ID: 1,
     date: new Date (2018, 9, 5),
     description: 'Профилактическая проверка и вакцинация. Животное здорово.',
@@ -9,4 +9,4 @@ const MockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
     pet_ID: 4
 })); 
 
-export default MockDiagnosisList;
+export default mockDiagnosisList;

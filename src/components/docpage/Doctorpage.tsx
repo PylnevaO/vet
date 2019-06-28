@@ -22,7 +22,7 @@ class Docpage extends React.Component {
     return (
       <div className="Doctor-page-container">
           <Doctorcard doctor={currentDoctor}/>
-          <DiagnosCardMini  diagnosis={mockDiagnosisList} pets={mockPetList} currentID={currentID} isDoctor={true}/>
+          <DiagnosCardMini  diagnosis={mockDiagnosisList} pets={mockPetList} currentID={currentID} isUser={2}/>
       </div>
     );
   }

@@ -6,7 +6,7 @@ const mockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
     description: 'Профилактическая проверка и вакцинация. Животное здорово.',
     diagnos: 'Здоров',
     doctor_ID: 2,
-    pet_ID: 4
+    pet_ID: 2
 })); 
 
 export default mockDiagnosisList;

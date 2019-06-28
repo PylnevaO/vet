@@ -10,7 +10,7 @@ interface IPetListProps{
 interface IPetListState{
 }
 
-class Petlist extends React.Component<IPetListProps, IPetListState>{
+class Petlist extends React.Component<IPetListProps, IPetListState>{ // отображается на странице клиента 
     public render(){
         const myPets =  this.props.pets.filter(pet =>pet.client_ID === this.props.currentID);
         return(

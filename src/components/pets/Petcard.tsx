@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './Clientpage.scss';
-// import 
+import {IClient} from '../clientpage/Clientcard'
+import './Petpage.scss'
 
 export interface IPet{
     pet_ID: number;
@@ -9,11 +9,26 @@ export interface IPet{
     pet_age: number;
 }
 
-class Petcard extends React.Component{
+interface IPetcardProps{
+    pet: IPet;
+    client: IClient;
+}
+
+// tslint:disable-next-line: no-empty-interface
+interface IPetcardState{}
+
+class Petcard extends React.Component<IPetcardProps, IPetcardState>{ // отображается на странице животного
     public render(){
         return(
             <div className="Pet-card-container">
-                <div className="Title">Бобик</div>
+                <div className="Title">Животное:</div>
+                <div>
+                    <div>{this.props.pet.pet_name}</div>
+                    <div>{this.props.pet.pet_age}</div>
+                    <div>{this.props.client.name} {this.props.client.second_name}</div> 
+                    <div>{this.props.client.phone}</div>                
+                </div>
+
             </div>
                
         );

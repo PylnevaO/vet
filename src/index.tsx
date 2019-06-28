@@ -7,6 +7,7 @@ import Mheader from '../src/components/header/Mheader';
 import Mainpage from '../src/components/mainpage/Mainpage';
 import Docpage from './components/docpage/Doctorpage';
 import Loginpage from './components/loginpage/Loginpage';
+import Petpage from './components/pets/Petpage'
 import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -18,6 +19,7 @@ ReactDOM.render(
             <Route path="/clientpage" component={Clientpage} />
             <Route path="/docpage" component={Docpage}/>
             <Route path="/login" component={Loginpage}/>
+            <Route path="/petpage" component={Petpage}/>
         </Switch>
         <Mfooter/>
   </Router>,

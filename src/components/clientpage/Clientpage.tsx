@@ -22,7 +22,7 @@ class Clientpage extends React.Component {
           <Clientcard client={currentClient}/>
           <Petlist pets={mockPetList} currentID={currentID}/>
           </div>
-          <DiagnosCardMini diagnosis={mockDiagnosisList} pets= {mockPetList} currentID={currentID} isDoctor={false}/>
+          <DiagnosCardMini diagnosis={mockDiagnosisList} pets= {mockPetList} currentID={currentID} isUser={1}/>
       </div>
     );
   }

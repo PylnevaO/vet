@@ -9,7 +9,7 @@ interface IDiagnosCardMiniProps {
     diagnosis: IDiagnos[];
     pets: IPet[];
     currentID: number;
-    isDoctor: boolean;
+    isUser: number; // показывает где вызван компонент: 1 - стр. клиента, 2 - стр. доктора, другое (3) - стр. животного
 }
 
 // tslint:disable-next-line: no-empty-interface
@@ -18,10 +18,11 @@ interface IDiagnosCardMiniState {
 
 class DiagnosCardMini extends React.Component<IDiagnosCardMiniProps, IDiagnosCardMiniState>{ // отображение миниатюр диагнозов на странице доктора 
     public render( ){
-        const myDiagnosis = (this.props.isDoctor)? this.props.diagnosis.filter(diagnos =>diagnos.doctor_ID === this.props.currentID):
-            this.props.diagnosis.filter(diagnos =>diagnos.clent_ID === this.props.currentID);
-      //  const myPets = (this.props.isDoctor)? this.props.pets.filter(pet => pet.pet_ID===myDiagnosis.)
-        const findPet = (index: number) => {
+        const myDiagnosis = (this.props.isUser === 2)? this.props.diagnosis.filter(diagnos =>diagnos.doctor_ID === this.props.currentID):
+            (this.props.isUser ===1)? this.props.diagnosis.filter(diagnos =>diagnos.clent_ID === this.props.currentID):
+            this.props.diagnosis.filter(diagnos =>diagnos.pet_ID === this.props.currentID);
+    
+        const findPet = (index: number) => {// для отображения имени петомца по его ID
             let j: number=0;
             while(this.props.pets[j].pet_ID===index){j++;}
             return this.props.pets[j].pet_name;

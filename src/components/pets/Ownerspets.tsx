@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {IPet} from './Petcard'
+import {IPet} from './Pet'
+import './Pet.scss'
 
 interface IPetListProps{
     pets: IPet[];
@@ -10,11 +11,11 @@ interface IPetListProps{
 interface IPetListState{
 }
 
-class Petlist extends React.Component<IPetListProps, IPetListState>{ // отображается на странице клиента 
+class Ownerspets extends React.Component<IPetListProps, IPetListState>{ // отображается на странице клиента 
     public render(){
         const myPets =  this.props.pets.filter(pet =>pet.client_ID === this.props.currentID);
         return(
-            <div className="Pet-list-container">
+            <div className="Owner-pets-container">
                 <div className="Title">Животные:</div>
                 <div>{myPets.map((item)=>(<div>
                         <div>{item.pet_name}</div>
@@ -27,4 +28,4 @@ class Petlist extends React.Component<IPetListProps, IPetListState>{ // отоб
     }
 }
 
-export default Petlist;
+export default Ownerspets;

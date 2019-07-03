@@ -1,39 +1,56 @@
-import * as React from 'react';
-import {IDiagnos} from '../diagnosis/Diagnosiscard';
-import {IPet} from '../pets/Petcard'
-import './Diagnosis.scss';
+import * as React from 'react'
+import {Link} from "react-router-dom"
+import {IPet} from '../pets/Pet'
+import {IDiagnos} from './Diagnos';
+import './Diagnosis.scss'
 
-
+// tslint:disable-next-line: interface-over-type-literal
+interface IDiagnosCard {
+    name: string,
+    pet_id: number, // номер диагноза
+    diag_id: number,
+    diagnos: string
+}
 
 interface IDiagnosCardMiniProps {
     diagnosis: IDiagnos[];
     pets: IPet[];
-    currentID: number;
-    isUser: number; // показывает где вызван компонент: 1 - стр. клиента, 2 - стр. доктора, другое (3) - стр. животного
 }
 
-// tslint:disable-next-line: no-empty-interface
 interface IDiagnosCardMiniState {
+    petAndDiagnosis:  IDiagnosCard[];
 }
 
-class DiagnosCardMini extends React.Component<IDiagnosCardMiniProps, IDiagnosCardMiniState>{ // отображение миниатюр диагнозов на странице доктора 
-    public render( ){
-        const myDiagnosis = (this.props.isUser === 2)? this.props.diagnosis.filter(diagnos =>diagnos.doctor_ID === this.props.currentID):
-            (this.props.isUser ===1)? this.props.diagnosis.filter(diagnos =>diagnos.clent_ID === this.props.currentID):
-            this.props.diagnosis.filter(diagnos =>diagnos.pet_ID === this.props.currentID);
-    
-        const findPet = (index: number) => {// для отображения имени петомца по его ID
-            let j: number=0;
-            while(this.props.pets[j].pet_ID===index){j++;}
-            return this.props.pets[j].pet_name;
-        }
+class DiagnosCardMini extends React.Component <IDiagnosCardMiniProps, IDiagnosCardMiniState>{ // отображение миниатюр диагнозов на страницах доктора, петомца и кшлиента 
+    constructor(props: Readonly<IDiagnosCardMiniProps>){
+      super(props);
+      this.state={
+        petAndDiagnosis : []
+      }  
+    }
+    public componentDidMount(){
         
+        const tmp: IDiagnosCard[] = [];
+// tslint:disable-next-line: prefer-for-of
+        for(let i=0; i<this.props.diagnosis.length; i++){
+            tmp.push ({diag_id: this.props.diagnosis[i].diagnos_ID,
+                        diagnos : this.props.diagnosis[i].diagnos, 
+                        name : this.props.pets.filter(pet => pet.pet_ID===this.props.diagnosis[i].pet_ID)[0].pet_name,
+                        pet_id: this.props.diagnosis[i].pet_ID,
+                        
+                         }) // этот фильтр всегда будет давать только один элемент массива
+        }
+        this.setState({petAndDiagnosis: tmp});
+    }
+    public render( ){
+        
+
         return(
             <div className="Diagnos-block">
-                {myDiagnosis.map((item)=>(<div className="Diagnos-block-items">
-                                                        <div>{findPet(item.pet_ID)}</div>
-                                                        <div>{item.diagnos}</div>
-                                                    </div> ))}
+                {this.state.petAndDiagnosis.map((item) => (<div className="Diagnos-block-items">
+                    <Link to={`/petpage/${item.pet_id}`}>{item.name}</Link>
+                    <div>{item.diagnos}</div>
+                </div>))}           
             </div>
         );
     }

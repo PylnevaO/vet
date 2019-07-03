@@ -1,14 +1,6 @@
 import * as React from 'react';
+import {IClient} from './Client'
 import './Clientpage.scss';
-
-export interface IClient{
-    client_ID: number;
-    avatar: any;
-    name: string;
-    second_name: string;
-    adress: string;
-    phone: string;
-}
 
 interface IClientCardProps{
     client: IClient;

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import mockClientList from '../../mocks/Mockclientcard'
-import mockDiagnosisList from '../../mocks/Mockdiagnosislist'
-import mockPetList from '../../mocks/Mockpetlist'
-import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
-import Petlist from '../pets/Petslist'
-import Clientcard, { IClient } from './Clientcard'   
+// import mockDiagnosisList from '../../mocks/Mockdiagnosislist' 
+import {mockPetList} from '../../mocks/Mockpetlist'
+import {IClient} from '../clientpage/Client'
+// import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
+import Ownerspets from '../pets/Ownerspets'
+import Clientcard from './Clientcard'   
 import './Clientpage.scss';
 
 const currentID: number = 1;
@@ -20,9 +21,9 @@ class Clientpage extends React.Component {
       <div className="Client-page-container">
         <div className="Client-page-right-container">
           <Clientcard client={currentClient}/>
-          <Petlist pets={mockPetList} currentID={currentID}/>
+          <Ownerspets pets={mockPetList} currentID={currentID}/>
           </div>
-          <DiagnosCardMini diagnosis={mockDiagnosisList} pets= {mockPetList} currentID={currentID} isUser={1}/>
+          {/* <DiagnosCardMini diagnosis={mockDiagnosisList} pets= {mockPetList} currentID={currentID} isUser={1}/> */}
       </div>
     );
   }

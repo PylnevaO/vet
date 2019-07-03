@@ -1,4 +1,4 @@
-import {IClient} from '../components/clientpage/Clientcard';
+import {IClient} from '../components/clientpage/Client';
 
 const mockClientList: IClient[] = Array.from({length: 2},(x, i)=>({
     adress: 'Soho',

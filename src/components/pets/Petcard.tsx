@@ -1,17 +1,11 @@
 import * as React from 'react';
-import {IClient} from '../clientpage/Clientcard'
-import './Petpage.scss'
-
-export interface IPet{
-    pet_ID: number;
-    client_ID: number;
-    pet_name: string;
-    pet_age: number;
-}
+import {IClient} from '../clientpage/Client'
+import {IPet} from './Pet'
+import './Pet.scss'
 
 interface IPetcardProps{
-    pet: IPet;
-    client: IClient;
+    pet: Partial<IPet>;
+    client: Partial<IClient>;
 }
 
 // tslint:disable-next-line: no-empty-interface

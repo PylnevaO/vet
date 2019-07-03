@@ -13,6 +13,7 @@ class Mheader extends React.Component {
           </a>
           <p className="Header-titel">Dr. Pounce-A-Lot</p>
           <a className="Header-enter" href="/login"> Войти </a>
+          <a className="Header-pets" href="/petlist"> Все пациенты </a>
         </header>
       </div>
     );

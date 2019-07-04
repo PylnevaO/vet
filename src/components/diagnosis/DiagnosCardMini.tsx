@@ -22,28 +22,29 @@ interface IDiagnosCardMiniState {
 }
 
 class DiagnosCardMini extends React.Component <IDiagnosCardMiniProps, IDiagnosCardMiniState>{ // отображение миниатюр диагнозов на страницах доктора, петомца и кшлиента 
+    public static getDerivedStateFromProps(props :IDiagnosCardMiniProps){
+        
+        const tmp: IDiagnosCard[] = [];
+// tslint:disable-next-line: prefer-for-of
+        for(let i=0; i<props.diagnosis.length; i++){
+            tmp.push ({diag_id: props.diagnosis[i].diagnos_ID,
+                        diagnos : props.diagnosis[i].diagnos, 
+                        name : props.pets.filter(pet => pet.pet_ID===props.diagnosis[i].pet_ID)[0].pet_name,
+                        pet_id: props.diagnosis[i].pet_ID,
+                        
+                         }) // этот фильтр всегда будет давать только один элемент массива
+        }
+        return {petAndDiagnosis: tmp};
+    }
     constructor(props: Readonly<IDiagnosCardMiniProps>){
       super(props);
       this.state={
         petAndDiagnosis : []
       }  
     }
-    public componentDidMount(){
-        
-        const tmp: IDiagnosCard[] = [];
-// tslint:disable-next-line: prefer-for-of
-        for(let i=0; i<this.props.diagnosis.length; i++){
-            tmp.push ({diag_id: this.props.diagnosis[i].diagnos_ID,
-                        diagnos : this.props.diagnosis[i].diagnos, 
-                        name : this.props.pets.filter(pet => pet.pet_ID===this.props.diagnosis[i].pet_ID)[0].pet_name,
-                        pet_id: this.props.diagnosis[i].pet_ID,
-                        
-                         }) // этот фильтр всегда будет давать только один элемент массива
-        }
-        this.setState({petAndDiagnosis: tmp});
-    }
     public render( ){
-        
+// tslint:disable-next-line: no-console
+        console.log(this.props.pets[0].pet_name);
 
         return(
             <div className="Diagnos-block">

@@ -1,4 +1,4 @@
-import {IDoctor} from '../components/docpage/Doctorcard';
+import {IDoctor} from '../components/docpage/Doctor';
 
 const mockDoctorList: IDoctor[] = Array.from({length: 3},(x, i)=>({
     doctor_ID: i,

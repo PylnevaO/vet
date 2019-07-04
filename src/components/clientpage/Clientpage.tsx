@@ -1,29 +1,42 @@
 import * as React from 'react';
 import mockClientList from '../../mocks/Mockclientcard'
-// import mockDiagnosisList from '../../mocks/Mockdiagnosislist' 
+import mockDiagnosisList from '../../mocks/Mockdiagnosislist' 
 import {mockPetList} from '../../mocks/Mockpetlist'
 import {IClient} from '../clientpage/Client'
-// import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
+import { IDiagnos } from '../diagnosis/Diagnos';
+import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
 import Ownerspets from '../pets/Ownerspets'
 import Clientcard from './Clientcard'   
 import './Clientpage.scss';
 
-const currentID: number = 1;
 
-let index: number=0;
-while (mockClientList[index].client_ID!==currentID){
-  index++;
+interface IClientPageProps{
+  currentID: number;
 }
-const currentClient: IClient = mockClientList[index];
-class Clientpage extends React.Component {
+
+interface IClientPageState{
+  currentID: number;
+  currentClient: Partial<IClient>,
+  currentDiagnosis: IDiagnos[]
+}
+
+class Clientpage extends React.Component<IClientPageProps,IClientPageState> {
+  public static getDerivedStateFromProps(props: IClientPageProps){
+    // здесь будет присвоение id из пропсов
+    const tmpcurrentID: number = 1;
+    const tmpscurrentClient: IClient = mockClientList.filter(client => client.client_ID===tmpcurrentID)[0];
+    const tmpscurrentDiagnosis: IDiagnos [] = mockDiagnosisList.filter( diagnos => diagnos.clent_ID===tmpcurrentID)
+    return{ currentID: tmpcurrentID, currentClient: tmpscurrentClient, currentDiagnosis: tmpscurrentDiagnosis}
+  }
+
   public render() {
     return (
       <div className="Client-page-container">
         <div className="Client-page-right-container">
-          <Clientcard client={currentClient}/>
-          <Ownerspets pets={mockPetList} currentID={currentID}/>
+          <Clientcard client={this.state.currentClient}/>
+          <Ownerspets pets={mockPetList} currentID={this.state.currentID}/>
           </div>
-          {/* <DiagnosCardMini diagnosis={mockDiagnosisList} pets= {mockPetList} currentID={currentID} isUser={1}/> */}
+          <DiagnosCardMini diagnosis={this.state.currentDiagnosis} pets= {mockPetList}/>
       </div>
     );
   }

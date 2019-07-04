@@ -1,15 +1,10 @@
 import * as React from 'react';
+import {IDoctor} from './Doctor'
 import './Doctorpage.scss'
 
-export interface IDoctor{
-  doctor_ID: number;
-  doctor_name: string;
-  doctor_secondname: string;
-  specialty: string;
-}
 
 interface IDoctorcardProps{
-  doctor: IDoctor;
+  doctor: Partial<IDoctor>;
 }
 
 // tslint:disable-next-line: no-empty-interface

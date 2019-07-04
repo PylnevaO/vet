@@ -17,49 +17,47 @@ type TParams = { id: string };
 interface IPetpageProps  extends RouteComponentProps<TParams>{
 }
 
-// interface IDiagnosCard { // для передаи в DiagnosCardMini
-//     name: string,
-//     id: number, // номер диагноза
-//     diagnos: string
-// }
-
-// tslint:disable-next-line: no-empty-interface
 interface IPetpageState{
     currentID: number,
     currentClient: Partial<IClient>,
     currentPet:  Partial<IPet>,
-    index: number
-    diagArray: IDiagnos[];
+    currentDiagnosis: IDiagnos[];
 }
 
+// const mockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
+//     clent_ID: 1,
+//     date: new Date (2018, 9, 5),
+//     description: 'Профилактическая проверка и вакцинация. Животное здорово.',
+//     diagnos: 'Здоров',
+//     diagnos_ID: i,
+//     doctor_ID: 2,
+//     pet_ID: 2
+//   })); 
+
 class Petpage extends React.Component<IPetpageProps, IPetpageState>  { // страница конкретного животного
+    public static getDerivedStateFromProps(props: IPetpageProps){
+        const tmpcurrentID: number = props.match.params.id? Number(props.match.params.id) : 2;
+        const tmpcurrentPet: IPet = mockPetList.filter( pet => pet.pet_ID === tmpcurrentID)[0];
+        const tmpcurrentClient: IClient = mockClientCard.filter( client => client.client_ID===tmpcurrentPet.client_ID)[0];
+        const tmpcurrentDianosis: IDiagnos[] = mockDiagnosisList.filter(diagnos => diagnos.pet_ID===tmpcurrentID);
+        return {currentID: tmpcurrentID, currentClient: tmpcurrentClient, currentPet: tmpcurrentPet, currentDiagnosis: tmpcurrentDianosis};   
+    }
+    
     constructor(props: Readonly<IPetpageProps>){
         super(props);
         this.state={currentClient: {},
                     currentID: 0,
                     currentPet: {},
-                    index: 0,
 // tslint:disable-next-line: object-literal-sort-keys
-                    diagArray: []
+                    currentDiagnosis: []
                     }
     }
-    public componentDidMount() {
-        this.setState({currentID: this.props.match? Number(this.props.match.params.id) : 2}); 
-        let index: number=0;
-        while (mockPetList[index].pet_ID!==this.state.currentID){index++;}
-        this.setState({currentPet: mockPetList[index]});
-        index = 0;
-        while (mockClientCard[index].client_ID!==this.state.currentID){index++;}
-        this.setState({currentClient: mockClientCard[index]});
-        const tmp : IDiagnos[] = mockDiagnosisList.filter(diagnos =>diagnos.doctor_ID === this.state.currentID);
-        this.setState({diagArray: tmp});
-        
-    }
+    
     public render (){
         return(
             <div className="Pet-page-container">
                 <Petcard pet={this.state.currentPet} client={this.state.currentClient}/>
-                <DiagnosCardMini diagnosis={mockDiagnosisList} pets={mockPetList}  />
+                <DiagnosCardMini diagnosis={this.state.currentDiagnosis} pets={mockPetList}  />
             </div>
         );
     }

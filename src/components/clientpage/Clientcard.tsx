@@ -3,7 +3,7 @@ import {IClient} from './Client'
 import './Clientpage.scss';
 
 interface IClientCardProps{
-    client: IClient;
+    client: Partial<IClient>;
 }
 
 // tslint:disable-next-line: no-empty-interface

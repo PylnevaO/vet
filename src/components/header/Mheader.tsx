@@ -8,7 +8,7 @@ class Mheader extends React.Component {
     return (
       <div className="Header-container">
         <header className="Header">
-          <a href="/main">
+          <a href="/">
             <img src={logo} className="Header-logo" alt="logo"/>
           </a>
           <p className="Header-titel">Dr. Pounce-A-Lot</p>

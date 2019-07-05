@@ -50,7 +50,7 @@ class DiagnosCardMini extends React.Component <IDiagnosCardMiniProps, IDiagnosCa
             <div className="Diagnos-block">
                 {this.state.petAndDiagnosis.map((item) => (<div className="Diagnos-block-items">
                     <Link to={`/petpage/${item.pet_id}`}>{item.name}</Link>
-                    <div>{item.diagnos}</div>
+                    <Link to={`/diagnos/${item.diag_id}`}>{item.diagnos}</Link>
                 </div>))}           
             </div>
         );

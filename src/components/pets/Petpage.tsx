@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router'
 import mockClientCard from '../../mocks/Mockclientcard'
 import mockDiagnosisList from '../../mocks/Mockdiagnosislist'
 import {mockPetList} from '../../mocks/Mockpetlist'
 import {IClient} from '../clientpage/Client'
-import { IDiagnos } from '../diagnosis/Diagnos';
+import { IDiagnos } from '../diagnosis/Diagnos'
 import DiagnosCardMini from '../diagnosis/DiagnosCardMini'
 import {IPet} from './Pet'
 import './Pet.scss'
@@ -23,16 +23,6 @@ interface IPetpageState{
     currentPet:  Partial<IPet>,
     currentDiagnosis: IDiagnos[];
 }
-
-// const mockDiagnosisList: IDiagnos[] = Array.from({length: 2},(x, i)=>({
-//     clent_ID: 1,
-//     date: new Date (2018, 9, 5),
-//     description: 'Профилактическая проверка и вакцинация. Животное здорово.',
-//     diagnos: 'Здоров',
-//     diagnos_ID: i,
-//     doctor_ID: 2,
-//     pet_ID: 2
-//   })); 
 
 class Petpage extends React.Component<IPetpageProps, IPetpageState>  { // страница конкретного животного
     public static getDerivedStateFromProps(props: IPetpageProps){

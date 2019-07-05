@@ -5,6 +5,7 @@ import Clientpage from '../src/components/clientpage/Clientpage';
 import Mfooter from '../src/components/footer/Mfooter';
 import Mheader from '../src/components/header/Mheader';
 import Mainpage from '../src/components/mainpage/Mainpage';
+import Diagnosview from './components/diagnosis/DiagnosView'
 import Docpage from './components/docpage/Doctorpage';
 import Loginpage from './components/loginpage/Loginpage';
 import Petlist from './components/pets/Petlist'
@@ -17,12 +18,13 @@ ReactDOM.render(
   <Router>
         <Mheader/>
         <Switch>
-            <Route path="/main" component={Mainpage} />
+            <Route exact={true} path="/" component={Mainpage} />
             <Route path="/clientpage" component={Clientpage} />
             <Route path="/docpage" component={Docpage}/>
             <Route path="/login" component={Loginpage}/>
             <Route path="/petpage/:id" component={Petpage}/>
             <Route path="/petlist" component={Petlist}/>
+            <Route path="/diagnos/:id" component={Diagnosview}/>
         </Switch>
         <Mfooter/>
   </Router>,
